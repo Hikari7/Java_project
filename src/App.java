@@ -1,14 +1,18 @@
 import java.util.Scanner;
 
 public class App {
+    private static Object answer;
+    private static String plan;
+
     public static void main(String[] args) throws Exception {
         Scanner input = new Scanner(System.in);
         //assume an account has already been created
-        Mypage account = new Mypage("hikari","12345", 300);
+        Mypage account = new Mypage("hikari","12345", 700, "Brakfast Only");
 
-        System.out.println("----------------------");
-        System.out.println("Welcome to travel.com!");
-        System.out.println("----------------------");
+        System.out.println("--------------------------");
+        System.out.println("Welcome to Hotel mi casa!");
+        System.out.println("This is your login page");
+        System.out.println("--------------------------");
 
         while(true) {
             System.out.println("Please enter your username");
@@ -32,6 +36,8 @@ public class App {
 
         }
         account.showMenu();
+        
+       
         input.close();
     }
 }
