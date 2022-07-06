@@ -121,10 +121,10 @@ public class Mypage { // generics
 
                         System.out.println("---------------------------------");
                         System.out.println("Get additional plans");
-                        System.out.println("A: Breakfast included"); // +50$
-                        System.out.println("B: Room service"); // +100$
-                        System.out.println("C: Rent a car"); // +150$
-                        System.out.println("D: Spa"); // +200$
+                        System.out.println("A: Breakfast included + $50"); // +50$
+                        System.out.println("B: Room service + $100"); // +100$
+                        System.out.println("C: Rent a car + $150"); // +150$
+                        System.out.println("D: Spa + $200"); // +200$
                         System.out.println("---------------------------------");
                         System.out.println("\n");
 
