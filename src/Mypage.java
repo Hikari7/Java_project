@@ -1,65 +1,30 @@
 import java.util.Scanner;
-
 import javax.swing.plaf.synth.SynthScrollBarUI;
 
-/* 1) login: user_name, PW
-* 2) reservation number
-* 3) showMenu
-* 4)
-* A: check current info
-* - DD/MM/YYYY, Price, Option (Breakfast Only)
-* - $250
-* 
-* B: Change the meal plans
-* 
-* a: Room Only -> - $50
-* b: Brakfast Only -> 0
-* c: Half Board -> + $60
-* d: Full Board -> + $80
-* 
-* C: Cancel the reservation
-* -> show the refund price
-* 
-* D: Quit "Thank you!"
-* 
-* E: error message
-*/
-// public class Mypage <S1, S2> {  //generics
-
-/*やること
- * デフォルトのprice(700)からそれぞれのオプションを足せるようにする
- * キャンセルしたらcurrent price分を全て無くすようにする
- */
-
-
-public class Mypage  {  //generics
-    private final int price;              //field変数
-    private final String userName;      //final: 変更ができなくする
+public class Mypage { // generics
+    private final String userName; // final: 変更ができなくする
     private final String passWord;
-    private final String plan;
-    // private int plan1; //RO
-    // private int plan2; //BF
-    // private int plan3; //HB
-    // private int plan4; //FB
+    private int price; // field変数
+    private String plan;
+    private String answer; // answerの仮の変数
+    private boolean bookingStatus; // bookingStatus
+    private String addplan;
 
-    private String answer;
-
-
-
-    public Mypage(String string, String string2, int price, String plan) {
-        this.userName = string;      //instansiate
-        this.passWord = string2;      //他のやつはlocal class
-        this.price = price;   
+    public Mypage(String username, String password, int price, String plan) {
+        this.userName = username; // instansiate
+        this.passWord = password; // 他のやつはlocal class
+        this.price = price;
         this.plan = plan;
     }
 
-    public String getUserName() {  //privateになっているフィールド変数を
-        return userName;//フィールド名
+    public String getUserName() { // privateになっているフィールド変数を
+        return userName;// フィールド名
     }
+
     public String getPassWord() {
         return passWord;
     }
-    
+
     public String getAnswer() {
         return answer;
     }
@@ -68,132 +33,206 @@ public class Mypage  {  //generics
         return plan;
     }
 
-void hotelFee(int fee) {
-    System.out.println("500 CAD is the standard price (Room Only)");
-}
+    void additionalPlan(char choice) { // それぞれのadditional plan rateを足す
+        switch (choice) {
+            case 'a':
+                if (bookingStatus == true) {
+                    System.out.println("You already booked this plan");
+                } else {
+                    System.out.println("Your plan has been added. Please confirm your booking price in the top page");
+                    price = price + 50;
+                }
 
-    void planPrice(int plan1, int plan2, int plan3, int plan4, int price) {
-        if (plan.equals(plan1)) {
-            price = price + 50;    //????????
-        } else if (plan.equals(plan2)){
-            price = price + 100; 
-        } 
-        else if (plan.equals(plan3)){
-            price = price + 150; 
-        } 
-         else{
-            price = price + 200; 
-        } 
+                break;
+
+            case 'b':
+                if (bookingStatus == true) {
+                    System.out.println("You already booked this plan");
+                } else {
+                    System.out.println("Your plan has been added. Please confirm your booking price in the top page");
+                    price = price + 100;
+                }
+
+                break;
+
+            case 'c':
+                if (bookingStatus == true) {
+                    System.out.println("You already booked this plan");
+                } else {
+                    System.out.println("Your plan has been added. Please confirm your booking price in the top page");
+                    price = price + 150;
+                }
+
+                break;
+
+            case 'd':
+                if (bookingStatus == true) {
+                    System.out.println("You already booked this plan");
+                } else {
+                    System.out.println("Your plan has been added. Please confirm your booking price in the top page");
+                    price = price + 200;
+                }
+
+                break;
+
+        } // defauleがいっつも出てきてうざい
+
+        // if (Character.toLowerCase(choice) == 'a') {
+        // price = price + 50;
+        // } else if (addplan.equals("B")) {
+        // price = price + 100;
+        // } else if (addplan.equals("C")) {
+        // price = price + 150;
+        // } else{
+        // price = price + 200;
+        // }
     }
-
 
     void showMenu() {
         char option;
-        char option2;
         Scanner scanner = new Scanner(System.in);
 
         do {
             System.out.println("============================");
-            System.out.println("*  My page | Hotel mi casa *");
+            System.out.println("*  My page | Hotel Nae Jib *");
             System.out.println("============================");
             System.out.println("A: See your booking info");
-            System.out.println("B: Add option/amenity");
-            System.out.println("C: Cancel the reservation");
+            System.out.println("B: Get additional plans");
+            System.out.println("C: Cancel your reservation");
             System.out.println("D: Quit");
-            option = scanner.next().charAt(0);  //[a]bcd
-            
+            option = scanner.next().charAt(0); // [a]bcd
+
+            App.clearConsole();
 
             switch (option) {
-                case 'a': 
-                System.out.println("----------- Your reservation info -------------");
-                System.out.println("* Total price: CAD " + price);
-                System.out.println("* The meal plan: " + plan);
-                System.out.println("----------------------------------------------");
-                System.out.println("\n");
-                break;
+                case 'a':
+
+                    System.out.println("----------- Your reservation info -------------");
+                    System.out.println("* Total price: CAD " + price);
+                    System.out.println("* Your additional plan: " + plan);
+                    System.out.println("----------------------------------------------\n");
+                    System.out.println("\n");
+                    break;
 
                 case 'b':
-                System.out.println("----------------------------------------------------");
-                System.out.println("Add option/amenity");
-                System.out.println("1: Breakfast");   // +50$
-                System.out.println("2: Room service");   // +100$
-                System.out.println("3: Pet-friendly");  // +150$
-                System.out.println("4: Spa");   // +200$
-                System.out.println("----------------------------------------------------");
-                System.out.println("\n");
+                    if (price < 1) {
+                        System.out.println("You don't have any reservation.\n Please reserve a room first.\n");
+                    } else {
 
-                answer = scanner.next();
-                switch (option) {
-                    case '1':
-                    if ((answer.equals("1"))) {
-                        System.out.println("You already booked that plan");
-                    } else {
-                        System.out.println("Your plan has been changed. Please confirm your booking price in the top page");
-                        planPrice(price);
-                    }
-                        break;
-                    case '2':
-                    if (answer.equals("2")) {
-                        System.out.println("You already booked that plan");
-                    } else {
-                        System.out.println("Your plan has been changed. Please confirm your booking price in the top page");
-                        planPrice(price);
-                    }
-                        break;
-                    case '3':
-                    if (answer.equals("3")) {
-                        System.out.println("You already booked that plan");
-                    } else {
-                        System.out.println("Your plan has been changed. Please confirm your booking price in the top page");
-                        planPrice(price);
-                    }
-                        break;
-                    case '4':
-                    if (answer.equals("4")) {
-                        System.out.println("You already booked that plan");
-                    } else {
-                        System.out.println("Your plan has been changed. Please confirm your booking price in the top page");
-                        planPrice(price);
-                    }
-                        break;
-                
-                    // default:
-                    // System.out.println("Invalid option. Please try again.");
-                    //     break;
-                }
+                        System.out.println("---------------------------------");
+                        System.out.println("Get additional plans");
+                        System.out.println("A: Breakfast included"); // +50$
+                        System.out.println("B: Room service"); // +100$
+                        System.out.println("C: Rent a car"); // +150$
+                        System.out.println("D: Spa"); // +200$
+                        System.out.println("---------------------------------");
+                        System.out.println("\n");
 
+                        char addplan;
+                        addplan = scanner.next().charAt(0); // [a]bcd
+                        additionalPlan(addplan);
+                        // switch (addplan) {
+                        // case 'a':
+                        // if(bookingStatus == true){
+                        // System.out.println("You already booked this plan");
+                        // } else {
+                        // System.out.println("Your plan has been added. Please confirm your booking
+                        // price in the top page");
+                        // additionalPlan(price, addplan);
+                        // }
 
-                break;
+                        // break;
+
+                        // case 'b':
+                        // if(bookingStatus == true){
+                        // System.out.println("You already booked this plan");
+                        // }
+                        // System.out.println("Your plan has been added. Please confirm your booking
+                        // price in the top page");
+                        // additionalPlan(price);
+
+                        // break;
+
+                        // case 'c':
+                        // if(bookingStatus == true){
+                        // System.out.println("You already booked this plan");
+                        // }
+                        // System.out.println("Your plan has been added. Please confirm your booking
+                        // price in the top page");
+                        // additionalPlan(price);
+
+                        // break;
+
+                        // case 'd':
+                        // if(bookingStatus == true){
+                        // System.out.println("You already booked this plan");
+                        // }
+                        // System.out.println("Your plan has been added. Please confirm your booking
+                        // price in the top page");
+                        // additionalPlan(price);
+
+                        // break;
+
+                        // } //defauleがいっつも出てきてうざい
+                        break;
+                    }
 
                 case 'c':
-                System.out.println("Are you sure you want to cancel the booking? Type [yes/no]");
-                answer = scanner.next();
-                if (answer.equals("yes")){
-                    System.out.println("Your booking canceled successfuly.");
-                } else if (answer.equals("no")) {
-                    System.out.println("We'll redirect the menu page. Have a nice trip!");
-                }
-                else {
-                    System.out.println("Invalid option. Please try again.");
-                }
-					
-                break;    
+                    System.out.println("Are you sure you want to cancel the booking? Type [yes/no]");
+
+                    answer = scanner.next();
+                    if (answer.equals("yes")) {
+                        System.out.println("\nYour booking canceled successfuly.");
+                        System.out.println("Please confirm your price from the booking info.\n");
+                        price = 0;
+                        plan = "You don't have any reservation yet.";
+                    } else if (answer.equals("no")) {
+                        System.out.println("You'll be redirected the menu page.\n\n");
+                    } else {
+                        System.out.println("Invalid option. Please try again.");
+                    }
+
+                    break;
 
                 default:
-                System.out.println("Invalid option. Please try again.");
-                break;
-                }
+                    System.out.println("Invalid option. Please try again.\n");
+                    break;
+            }
 
-            
-        
-
-            } while (Character.toLowerCase(option)!= 'd');   //optionの時のcharがe(おわり)じゃなかったら
-            System.out.println("Thank you for visiting us. Have a nice trip!");
-            scanner.close();
+        } while (Character.toLowerCase(option) != 'd'); // optionの時のcharがe(おわり)じゃなかったら
+        System.out.println("Thank you for visiting us.\n Have a nice trip!\n\n");
+        scanner.close();
 
     }
-
-    private void planPrice(int price2) {
-    }
-    
 }
+
+/*
+ * 1) login: user_name, PW
+ * 2) reservation number
+ * 3) showMenu
+ * 4)
+ * A: check current info
+ * - DD/MM/YYYY, Price, Option (Breakfast Only)
+ * - $250
+ * 
+ * B: Change the meal plans
+ * 
+ * a: Room Only -> - $50
+ * b: Brakfast Only -> 0
+ * c: Half Board -> + $60
+ * d: Full Board -> + $80
+ * 
+ * C: Cancel the reservation
+ * -> show the refund price
+ * 
+ * D: Quit "Thank you!"
+ * 
+ * E: error message
+ */
+// public class Mypage <S1, S2> { //generics
+
+/*
+ * やること
+ * デフォルトのprice(700)からそれぞれのオプションを足せるようにする
+ * キャンセルしたらcurrent price分を全て無くすようにする
+ */

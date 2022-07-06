@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.Scanner;
 
 public class App {
@@ -7,12 +8,14 @@ public class App {
     public static void main(String[] args) throws Exception {
         Scanner input = new Scanner(System.in);
         //assume an account has already been created
-        Mypage account = new Mypage("hikari","12345", 700, "Brakfast Only");
+        Mypage account = new Mypage("hikari","12345", 700, "Breakfast included");
 
+        clearConsole();
         System.out.println("--------------------------");
-        System.out.println("Welcome to Hotel mi casa!");
+        System.out.println("Welcome to Hotel Nae Jib!");
         System.out.println("This is your login page");
         System.out.println("--------------------------");
+
 
         while(true) {
             System.out.println("Please enter your username");
@@ -35,9 +38,19 @@ public class App {
             }
 
         }
+        clearConsole();
         account.showMenu();
-        
-       
         input.close();
     }
-}
+
+    public static void clearConsole() {
+        {  
+            try {
+                if (System.getProperty("os.name").contains("Windows"))
+                    new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+                else
+                    Runtime.getRuntime().exec("clear");
+                    System.out.print("\033\143");
+            } catch (IOException | InterruptedException ex) {}
+    }
+}}
