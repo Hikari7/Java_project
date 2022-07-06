@@ -24,24 +24,29 @@ import javax.swing.plaf.synth.SynthScrollBarUI;
 * 
 * E: error message
 */
-public class Mypage <S1, S2> {  //generics
-    private int price;
-    private final S1 userName;  //field変数
-    private final S1 passWord;
-    public Mypage(S1 userName, S1 passWord) {
-        //instansiate
-        this.userName = userName; 
-        this.passWord = passWord;
+// public class Mypage <S1, S2> {  //generics
+public class Mypage  {  //generics
+    private final int price;              //field変数
+    private final String userName;      //final: 変更ができなくする
+    private final String passWord;
+    // private final S1 userName;
+    // private final S1 passWord;
 
-        //他のやつはlocal class
+
+    public Mypage(String string, String string2, int i) {
+        this.userName = string;      //instansiate
+        this.passWord = string2;      //他のやつはlocal class
+        this.price = i;   
     }
-    public S1 getUserName() {  //privateになっているフィールド変数を
+
+    public String getUserName() {  //privateになっているフィールド変数を
         return userName;//フィールド名
     }
-    public S1 getPassWord() {
+    public String getPassWord() {
         return passWord;
     }
     
+    String answer;
     
     void showMenu() {
         char option;
@@ -64,13 +69,35 @@ public class Mypage <S1, S2> {  //generics
                 System.out.println("----------------");
                 System.out.println("\n");
                 break;
-            }
 
-            } while ("aaaa" != null);
+                case 'b':
+                System.out.println("----------------");
+                System.out.println("Which meal plan would you want to change?");
+                System.out.println("A: Room Only");   // -50$
+                System.out.println("B: Breakfast Only");   // 0$
+                System.out.println("C: Half borad (includes two meals)");  // + 50$
+                System.out.println("D: Full board (includes the three main meals)");   // + 80$
+                System.out.println("----------------");
+                System.out.println("\n");
+                break;
 
-        // } while(Character.toLowerCase(option) != "e");
-        // System.out.println("Thank you, have a great trip!");
-        // Scanner.close();
+                case 'c':
+                System.out.println("Are you sure you want to cancel the booking? Type [yes/no]");
+                if (answer.equals("yes")){
+                    System.out.println("Your booking were canceled successfuly.");
+                } else {
+                    System.out.println("OK.");
+                }
+                break;    
+                }
+
+            
+        
+
+            } while (Character.toLowerCase(option)!= 'd');   //optionの時のcharがe(おわり)じゃなかったら
+            System.out.println("Thank you for visiting us. Have a nice trip!");
+            scanner.close();
+
     }
     
 }
