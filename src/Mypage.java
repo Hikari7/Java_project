@@ -11,9 +11,13 @@ public class Mypage { // generics
     private int price; // field変数
     private String answer; // answerの仮の変数
 
-    List<String> plan = new ArrayList<String>(); //playを配列に
+    List<String> plan = new ArrayList<String>(){
+        {
+            add("Breakfast included");
+        }
+    }; //playを配列に
 
-    public Mypage(String username, String password, int price) {
+    public Mypage(String username, String password, int price ) {
         this.userName = username; // instansiate
         this.passWord = password; // 他のやつはlocal class
         this.price = price;
@@ -106,6 +110,7 @@ public class Mypage { // generics
                 case 'a':
                     System.out.println("\n----------- Your reservation info -------------");
                     System.out.println("* Total price: CAD " + price);
+                    // plan.add("Breakfast included");
                     for (int i = 0; i < plan.size(); i++) {
                         System.out.println("* Additional plan: " + plan.get(i));
                     }
