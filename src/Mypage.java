@@ -8,7 +8,7 @@ public class Mypage { // generics
     private String plan;
     private String answer; // answerの仮の変数
     private boolean bookingStatus; // bookingStatus
-    private String addplan;
+
 
     public Mypage(String username, String password, int price, String plan) {
         this.userName = username; // instansiate
@@ -75,17 +75,7 @@ public class Mypage { // generics
 
                 break;
 
-        } // defauleがいっつも出てきてうざい
-
-        // if (Character.toLowerCase(choice) == 'a') {
-        // price = price + 50;
-        // } else if (addplan.equals("B")) {
-        // price = price + 100;
-        // } else if (addplan.equals("C")) {
-        // price = price + 150;
-        // } else{
-        // price = price + 200;
-        // }
+        } 
     }
 
     void showMenu() {
@@ -131,54 +121,12 @@ public class Mypage { // generics
                         char addplan;
                         addplan = scanner.next().charAt(0); // [a]bcd
                         additionalPlan(addplan);
-                        // switch (addplan) {
-                        // case 'a':
-                        // if(bookingStatus == true){
-                        // System.out.println("You already booked this plan");
-                        // } else {
-                        // System.out.println("Your plan has been added. Please confirm your booking
-                        // price in the top page");
-                        // additionalPlan(price, addplan);
-                        // }
-
-                        // break;
-
-                        // case 'b':
-                        // if(bookingStatus == true){
-                        // System.out.println("You already booked this plan");
-                        // }
-                        // System.out.println("Your plan has been added. Please confirm your booking
-                        // price in the top page");
-                        // additionalPlan(price);
-
-                        // break;
-
-                        // case 'c':
-                        // if(bookingStatus == true){
-                        // System.out.println("You already booked this plan");
-                        // }
-                        // System.out.println("Your plan has been added. Please confirm your booking
-                        // price in the top page");
-                        // additionalPlan(price);
-
-                        // break;
-
-                        // case 'd':
-                        // if(bookingStatus == true){
-                        // System.out.println("You already booked this plan");
-                        // }
-                        // System.out.println("Your plan has been added. Please confirm your booking
-                        // price in the top page");
-                        // additionalPlan(price);
-
-                        // break;
-
-                        // } //defauleがいっつも出てきてうざい
+                        
                         break;
                     }
 
                 case 'c':
-                    System.out.println("Are you sure you want to cancel the booking? Type [yes/no]");
+                    System.out.println("Are you sure you want to cancel the booking? Type [yes/no]\n");
 
                     answer = scanner.next();
                     if (answer.equals("yes")) {
@@ -206,33 +154,3 @@ public class Mypage { // generics
     }
 }
 
-/*
- * 1) login: user_name, PW
- * 2) reservation number
- * 3) showMenu
- * 4)
- * A: check current info
- * - DD/MM/YYYY, Price, Option (Breakfast Only)
- * - $250
- * 
- * B: Change the meal plans
- * 
- * a: Room Only -> - $50
- * b: Brakfast Only -> 0
- * c: Half Board -> + $60
- * d: Full Board -> + $80
- * 
- * C: Cancel the reservation
- * -> show the refund price
- * 
- * D: Quit "Thank you!"
- * 
- * E: error message
- */
-// public class Mypage <S1, S2> { //generics
-
-/*
- * やること
- * デフォルトのprice(700)からそれぞれのオプションを足せるようにする
- * キャンセルしたらcurrent price分を全て無くすようにする
- */

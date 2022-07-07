@@ -12,8 +12,8 @@ public class App {
 
         clearConsole();
         System.out.println("--------------------------");
-        System.out.println("Welcome to Hotel Nae Jib!");
-        System.out.println("This is your login page");
+        System.out.println("  Welcome to Hotel 　我的家!");
+        System.out.println("  This is your login page ");
         System.out.println("--------------------------");
 
 
