@@ -7,7 +7,7 @@ public class App {
 
     public static void main(String[] args) throws Exception {
         Scanner input = new Scanner(System.in);
-        Mypage account = new Mypage("hikari","12345", 700 );
+        Mypage account = new Mypage("hikari","12345", 700);
 
         clearConsole();
         System.out.println("--------------------------");

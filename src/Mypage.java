@@ -41,21 +41,21 @@ public class Mypage { // generics
         switch (choice) {
             
             case 'a':
-                if (plan == true) {
-                    System.out.println("You already booked this plan");
+                if (plan.contains("Breakfast included.\n")) {
+                    System.out.println("You already booked this plan. Please confirm your booking info.");
                 } else {
-                    System.out.println("Your plan has been added. Please confirm your booking price in the top page");
+                    System.out.println("You added the additional plan successfully.\n Please confirm your booking price on the top page.");
                     price = price + 50;
-                    plan.add("Breakfast included");
+                    plan.add("Breakfast included.\n");
                 }
 
                 break;
 
             case 'b':
-                if (bookingStatus == true) {
-                    System.out.println("You already booked this plan");
+                if (plan.contains("Room service")) {
+                    System.out.println("You already booked this plan. Please confirm your booking info.");
                 } else {
-                    System.out.println("Your plan has been added. Please confirm your booking price in the top page");
+                    System.out.println("You added the additional plan successfully.\n Please confirm your booking price on the top page.");
                     price = price + 100;
                     plan.add("Room service");
                 }
@@ -63,21 +63,21 @@ public class Mypage { // generics
                 break;
 
             case 'c':
-                if (bookingStatus == true) {
-                    System.out.println("You already booked this plan");
+                if (plan.contains("Rent a car")) {
+                    System.out.println("You already booked this plan. Please confirm your booking info.");
                 } else {
-                    System.out.println("Your plan has been added. Please confirm your booking price in the top page");
+                    System.out.println("You added the additional plan successfully.\n Please confirm your booking price on the top page.");
                     price = price + 150;
-                    plan.add("Cancel your reservation");
+                    plan.add("Rent a car\n");
                 }
 
                 break;
 
             case 'd':
-                if (bookingStatus == true) {
-                    System.out.println("You already booked this plan");
+                if (plan.contains("Spa")) {
+                    System.out.println("You already booked this plan. Please confirm your booking info.");
                 } else {
-                    System.out.println("Your plan has been added. Please confirm your booking price in the top page");
+                    System.out.println("You added the additional plan successfully.\n Please confirm your booking price on the top page.");
                     price = price + 200;
                     plan.add("Spa");
                 }
