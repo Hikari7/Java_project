@@ -7,12 +7,11 @@ public class App {
 
     public static void main(String[] args) throws Exception {
         Scanner input = new Scanner(System.in);
-        //assume an account has already been created
-        Mypage account = new Mypage("hikari","12345", 700, "Breakfast included");
+        Mypage account = new Mypage("hikari","12345", 700 );
 
         clearConsole();
         System.out.println("--------------------------");
-        System.out.println("  Welcome to Hotel 　我的家!");
+        System.out.println("  Welcome to Hotel 我的家!");
         System.out.println("  This is your login page ");
         System.out.println("--------------------------");
 
