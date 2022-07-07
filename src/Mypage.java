@@ -10,9 +10,8 @@ public class Mypage { // generics
     private final String passWord;
     private int price; // field変数
     private String answer; // answerの仮の変数
-    private boolean bookingStatus; // bookingStatus
 
-    List<String> plan = new ArrayList<String>();
+    List<String> plan = new ArrayList<String>(); //playを配列に
 
     public Mypage(String username, String password, int price) {
         this.userName = username; // instansiate
@@ -32,21 +31,17 @@ public class Mypage { // generics
         return answer;
     }
 
-    void bookingStatus() {
-        boolean bookingStatus = true;
-    }
-
     void additionalPlan(char choice) { // それぞれのadditional plan rateを足す
       
         switch (choice) {
             
             case 'a':
-                if (plan.contains("Breakfast included.\n")) {
+                if (plan.contains("Breakfast included")) {
                     System.out.println("You already booked this plan. Please confirm your booking info.");
                 } else {
-                    System.out.println("You added the additional plan successfully.\n Please confirm your booking price on the top page.");
+                    System.out.println("You added the additional plan successfully.\nPlease confirm your booking price on the top page.");
                     price = price + 50;
-                    plan.add("Breakfast included.\n");
+                    plan.add("Breakfast included.");
                 }
 
                 break;
@@ -55,7 +50,7 @@ public class Mypage { // generics
                 if (plan.contains("Room service")) {
                     System.out.println("You already booked this plan. Please confirm your booking info.");
                 } else {
-                    System.out.println("You added the additional plan successfully.\n Please confirm your booking price on the top page.");
+                    System.out.println("You added the additional plan successfully.\nPlease confirm your booking price on the top page.");
                     price = price + 100;
                     plan.add("Room service");
                 }
@@ -66,9 +61,9 @@ public class Mypage { // generics
                 if (plan.contains("Rent a car")) {
                     System.out.println("You already booked this plan. Please confirm your booking info.");
                 } else {
-                    System.out.println("You added the additional plan successfully.\n Please confirm your booking price on the top page.");
+                    System.out.println("You added the additional plan successfully.\nPlease confirm your booking price on the top page.");
                     price = price + 150;
-                    plan.add("Rent a car\n");
+                    plan.add("Rent a car");
                 }
 
                 break;
@@ -77,7 +72,7 @@ public class Mypage { // generics
                 if (plan.contains("Spa")) {
                     System.out.println("You already booked this plan. Please confirm your booking info.");
                 } else {
-                    System.out.println("You added the additional plan successfully.\n Please confirm your booking price on the top page.");
+                    System.out.println("You added the additional plan successfully.\nPlease confirm your booking price on the top page.");
                     price = price + 200;
                     plan.add("Spa");
                 }
@@ -112,11 +107,9 @@ public class Mypage { // generics
                     System.out.println("\n----------- Your reservation info -------------");
                     System.out.println("* Total price: CAD " + price);
                     for (int i = 0; i < plan.size(); i++) {
-                        System.out.println("* Your additional plan: " + plan.get(i));
+                        System.out.println("* Additional plan: " + plan.get(i));
                     }
-
-                    System.out.println("----------------------------------------------\n");
-                    System.out.println("\n");
+                    System.out.println("------------------------------------------------\n");
                     break;
 
                 case 'b':
@@ -126,14 +119,15 @@ public class Mypage { // generics
 
                         System.out.println("---------------------------------");
                         System.out.println("Get additional plans");
-                        System.out.println("A: Breakfast included + $50"); // +50$
-                        System.out.println("B: Room service + $100"); // +100$
-                        System.out.println("C: Rent a car + $150"); // +150$
-                        System.out.println("D: Spa + $200"); // +200$
+                        System.out.println("---------------------------------");
+                        System.out.println("A: Breakfast included + $50");
+                        System.out.println("B: Room service + $100"); 
+                        System.out.println("C: Rent a car + $150"); 
+                        System.out.println("D: Spa + $200"); 
                         System.out.println("---------------------------------");
 
                         char addplan;
-                        addplan = scanner.next().charAt(0); // [a]bcd
+                        addplan = scanner.next().charAt(0);
                         additionalPlan(addplan);
 
                         break;
@@ -144,12 +138,12 @@ public class Mypage { // generics
 
                     answer = scanner.next();
                     if (answer.equals("yes")) {
-                        System.out.println("\nYour booking canceled successfuly.");
+                        System.out.println("Your booking canceled successfuly.");
                         System.out.println("Please confirm your price from the booking info.\n");
                         price = 0;
-                        // plans = "You don't have any reservation yet.";
+                        plan.clear();
                     } else if (answer.equals("no")) {
-                        System.out.println("You'll be redirected the menu page.\n\n");
+                        System.out.println("You'll be redirected the menu page.\n");
                     } else {
                         System.out.println("Invalid option. Please try again.");
                     }
@@ -162,7 +156,7 @@ public class Mypage { // generics
             }
 
         } while (Character.toLowerCase(option) != 'd'); // optionの時のcharがe(おわり)じゃなかったら
-        System.out.println("Thank you for visiting us.\n Have a nice trip!\n\n");
+        System.out.println("Thank you for visiting us.\nHave a nice trip!\n\n");
         scanner.close();
 
     }
