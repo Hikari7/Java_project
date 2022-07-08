@@ -13,7 +13,7 @@ public class Mypage { // generics
 
     List<String> plan = new ArrayList<String>(){
         {
-            add("Breakfast included");
+            add("Breakfast included"); //assume the user aleady reserved the plan
         }
     }; //playを配列に
 
@@ -95,9 +95,9 @@ public class Mypage { // generics
         Scanner scanner = new Scanner(System.in);
 
         do {
-            System.out.println("============================");
+            System.out.println("✼••┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈••✼");
             System.out.println("*  My page | Hotel 我的家  *");
-            System.out.println("============================");
+            System.out.println("✼••┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈••✼");
             System.out.println("A: See your booking info");
             System.out.println("B: Get additional plans");
             System.out.println("C: Cancel your reservation");
@@ -108,13 +108,13 @@ public class Mypage { // generics
 
             switch (option) {
                 case 'a':
-                    System.out.println("\n----------- Your reservation info -------------");
+                    System.out.println("\n----------- Your booking info -------------");
                     System.out.println("* Total price: CAD " + price);
                     // plan.add("Breakfast included");
                     for (int i = 0; i < plan.size(); i++) {
                         System.out.println("* Additional plan: " + plan.get(i));
                     }
-                    System.out.println("------------------------------------------------\n");
+                    System.out.println("-------------------------------------------\n");
                     break;
 
                 case 'b':
@@ -122,8 +122,8 @@ public class Mypage { // generics
                         System.out.println("You don't have any reservation.\n Please reserve a room first.\n");
                     } else {
 
-                        System.out.println("---------------------------------");
-                        System.out.println("Get additional plans");
+                        System.out.println("*-------------------------------*");
+                        System.out.println("      Get additional plans      ");
                         System.out.println("---------------------------------");
                         System.out.println("A: Breakfast included + $50");
                         System.out.println("B: Room service + $100"); 
@@ -155,9 +155,7 @@ public class Mypage { // generics
 
                     break;
 
-                default:
-                    System.out.println("Invalid option. Please try again.\n");
-                    break;
+                
             }
 
         } while (Character.toLowerCase(option) != 'd'); // optionの時のcharがe(おわり)じゃなかったら

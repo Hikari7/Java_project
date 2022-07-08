@@ -10,10 +10,10 @@ public class App {
         Mypage account = new Mypage("hikari","12345", 700);
 
         clearConsole();
-        System.out.println("--------------------------");
+        System.out.println("✼••┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈••✼");
         System.out.println("  Welcome to Hotel 我的家! ");
         System.out.println("  This is your login page ");
-        System.out.println("--------------------------");
+        System.out.println("✼••┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈••✼");
 
 
         while(true) {
