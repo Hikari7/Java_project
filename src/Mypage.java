@@ -14,14 +14,20 @@ public class Mypage { // generics
         }
     }; //playを配列に
 
+
+    //method (like a function)
     public Mypage(String username, String password, int price ) {
         this.userName = username; // instansiate
         this.passWord = password; // 他のやつはlocal class
         this.price = price;
+
+        //this: その変数が指すインスタンスのフィールドやメソッドを参照したり呼び出せるのと同じように、
+        //自分自身のインスタンスを明示的に指し示し、そのフィールドやメソッドを使いたい時に使う変数
     }
 
-    public String getUserName() { // privateになっているフィールド変数を
-        return userName;// フィールド名
+    //fields
+    public String getUserName() { 
+        return userName;
     }
 
     public String getPassWord() {
