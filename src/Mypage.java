@@ -1,9 +1,6 @@
-import java.lang.module.ModuleDescriptor.Builder;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.concurrent.CountDownLatch;
-import javax.swing.plaf.synth.SynthScrollBarUI;
 
 public class Mypage { // generics
     private final String userName; // final: 変更ができなくする

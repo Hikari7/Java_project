@@ -2,8 +2,6 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class App {
-    private static Object answer;
-    private static String plan;
 
     public static void main(String[] args) throws Exception {
         Scanner input = new Scanner(System.in);
